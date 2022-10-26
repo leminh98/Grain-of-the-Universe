@@ -1,0 +1,144 @@
+{
+  "main": {
+    "id": "abfbc71a56423939",
+    "type": "split",
+    "children": [
+      {
+        "id": "98fce817d182c51f",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "Mythos/Epidemic/general cards.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "b2343f50ea231872",
+    "type": "split",
+    "children": [
+      {
+        "id": "fc5f91ee10abd813",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c4a734f69cf3631e",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "e5216862a6546efa",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "4b1a1511b2ee400a",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "40e6453a1d377d68",
+    "type": "split",
+    "children": [
+      {
+        "id": "1bb1e01029680945",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d08ad7abbd262453",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Mythos/Epidemic/general cards.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "c230cc24667136c7",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Mythos/Epidemic/general cards.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "2fb3221c662bdfa7",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "057fe69ee3061664",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Mythos/Epidemic/general cards.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "98fce817d182c51f",
+  "lastOpenFiles": [
+    "Mythos/Seven Deadly Sins/General Design Notes.md",
+    "Mythos/Seven Deadly Sins/Untitled.md",
+    "Mythos/Outbreak/General design.md",
+    "Mythos/Epidemic/general cards.md",
+    "Mythos/Sign of the Stars/Venus Rising.md",
+    "Mythos/Sign of the Stars/Mercury in Retrograde.md",
+    "Mythos/Sign of the Stars/Jupyter At Opposition.md",
+    "Mythos/Sign of the Stars/Imploding Star.md",
+    "Mythos/Sign of the Stars/General Design Notes.md",
+    "Mythos/Sign of the Stars/Earhtshine.md"
+  ]
+}
