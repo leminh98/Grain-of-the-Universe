@@ -28,6 +28,8 @@ function create( diy ) {
 
 function setDefaults() {
 	$CardClass = 'Guardian';
+	$CardClass2 = 'None';
+	$CardClass3 = 'None';
 	$Level = '0';
 	$Skill1 = 'None';
 	$Skill2 = 'None';
@@ -133,10 +135,13 @@ function paintFront( g, diy, sheet ) {
 
 	PortraitList[getPortraitIndex( 'Portrait' )].paint( g, sheet.getRenderTarget() );
 
-	drawTemplate( g, sheet, $CardClass );
+	drawSkillTemplate( g, diy, sheet, $CardClass, $CardClass2, $CardClass3 );
 	drawLabel( g, diy, sheet, Label_box, #AHLCG-Label-Skill );
 	drawName( g, diy, sheet, Name_box );
 
+	var cClass = $CardClass;
+	if ( isDualClass( $CardClass, $CardClass2 ) ) cClass = 'Dual';
+	
 	if ($CardClass == 'Weakness' ) {	
 		drawSubtype( g, diy, sheet, Subtype_box, #AHLCG-Label-Weakness );
 	}
@@ -144,10 +149,10 @@ function paintFront( g, diy, sheet ) {
 		drawSubtype( g, diy, sheet, Subtype_box, #AHLCG-Label-BasicWeakness );
 	}
 	else {
-		drawLevel( g, diy, sheet, $CardClass );
+		drawLevel( g, diy, sheet, cClass );
 	}
 
-	drawSkillIcons( g, diy, sheet, $CardClass );
+	drawSkillIcons( g, diy, sheet, cClass );
 	
 	var regionName = 'Body';
 	if ( $CardClass == 'Weakness' || $CardClass == 'BasicWeakness') regionName = 'WeaknessBody';
@@ -227,10 +232,14 @@ function onRead(diy, oos) {
 	if ( diy.version < 13 ) {
 		$Skill6 = 'None';
 	}
+	if ( diy.version < 14 ) {
+		$CardClass2 = 'None';
+		$CardClass3 = 'None';
+	}
 
 	updateCollection();
 	
-	diy.version = 13;
+	diy.version = 14;
 }
 
 function onWrite( diy, oos ) {

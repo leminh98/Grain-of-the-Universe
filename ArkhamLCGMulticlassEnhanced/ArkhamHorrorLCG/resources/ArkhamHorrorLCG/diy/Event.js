@@ -29,6 +29,8 @@ function create( diy ) {
 function setDefaults() {
 	$Unique = '0';
 	$CardClass = 'Guardian';
+	$CardClass2 = 'None';
+	$CardClass3 = 'None';
 	$ResourceCost = '0';
 	$Level = '0';
 	$Skill1 = 'None';
@@ -136,12 +138,15 @@ function paintFront( g, diy, sheet ) {
 
 	PortraitList[getPortraitIndex( 'Portrait' )].paint( g, sheet.getRenderTarget() );
 
-	drawTemplate( g, sheet, $CardClass );
+	drawEventTemplate( g, diy, sheet, $CardClass, $CardClass2, $CardClass3 );
 	drawLabel( g, diy, sheet, Label_box, #AHLCG-Label-Event );
 	drawName( g, diy, sheet, Name_box );
 
 	var subtypeRegion = diy.settings.getRegion( getExpandedKey( FACE_FRONT, 'Subtype-region' ) );
 	if ( Eons.namedObjects.AHLCGObject.bodyFamily == 'Times New Roman' ) subtypeRegion.y -= 2;
+	
+	var cClass = $CardClass;
+	if ( isDualClass( $CardClass, $CardClass2 ) ) cClass = 'Dual';
 	
 	if ($CardClass == 'Weakness' ) {	
 		drawSubtype( g, diy, sheet, Subtype_box, #AHLCG-Label-Weakness );
@@ -153,12 +158,12 @@ function paintFront( g, diy, sheet ) {
 		drawBasicWeaknessIcon( g, diy, sheet );
 	}
 	else {
-		drawLevel( g, diy, sheet, $CardClass );
+		drawLevel( g, diy, sheet, cClass );
 	}
 
 	drawCost( g, diy, sheet );
 	
-	drawSkillIcons( g, diy, sheet, $CardClass );
+	drawSkillIcons( g, diy, sheet, cClass );
 	
 	var regionName = 'Body';
 	if ( $CardClass == 'Weakness' || $CardClass == 'BasicWeakness') regionName = 'WeaknessBody';
@@ -237,10 +242,14 @@ function onRead(diy, oos) {
 	if ( diy.version < 12 ) {
 		$BackTypeBack = 'Player';
 	}
-	
+	if ( diy.version < 13 ) {
+		$CardClass2 = 'None';
+		$CardClass3 = 'None';
+	}
+
 	updateCollection();
 	
-	diy.version = 12;
+	diy.version = 13;
 }
 
 function onWrite( diy, oos ) {

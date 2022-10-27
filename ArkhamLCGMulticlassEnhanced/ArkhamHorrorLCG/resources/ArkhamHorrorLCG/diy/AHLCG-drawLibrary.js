@@ -62,7 +62,7 @@ function drawBackTemplate( g, sheet ) {
 	sheet.paintImage( g, image, new Region(0, 0, w, h) );
 }
 
-function drawAssetTemplate( g, diy, sheet, className, className2 ) {
+function drawAssetTemplate( g, diy, sheet, className, className2, className3 ) {
 	var faceIndex = sheet.getSheetIndex();
 
 	// normal
@@ -71,8 +71,13 @@ function drawAssetTemplate( g, diy, sheet, className, className2 ) {
 		return;
 	}
 
+	// Try triple class first
+	if ( isTripleClass( className, className2, className3 )) {
+		drawTripleAssetTemplate( g, diy, sheet, className, className2, className3 );
+		return;
+	}
 	// don't draw dual class if the first class isn't a valid one or if the classes match
-	if ( !isDualClass( className, className2 ) ) {
+	else if ( !isDualClass( className, className2 ) ) {
 		drawTemplate( g, sheet, className );
 		return;
 	}
@@ -92,11 +97,41 @@ function drawAssetTemplate( g, diy, sheet, className, className2 ) {
 	var symbolImage1 = ImageUtils.get( 'ArkhamHorrorLCG/overlays/AHLCG-ClassSymbol-' + classInitial + '.png' );
 	var symbolImage2 = ImageUtils.get( 'ArkhamHorrorLCG/overlays/AHLCG-ClassSymbol-' + classInitial2 + '.png' );
 	
-	var symbolRegion1 = diy.settings.getRegion( getExpandedKey( faceIndex, 'ClassSymbol1-region') );
-	var symbolRegion2 = diy.settings.getRegion( getExpandedKey( faceIndex, 'ClassSymbol2-region') );
+	// Symbol 2 and 3 are the middle and rightmost one
+	var symbolRegion1 = diy.settings.getRegion( getExpandedKey( faceIndex, 'ClassSymbol2-region') );
+	var symbolRegion2 = diy.settings.getRegion( getExpandedKey( faceIndex, 'ClassSymbol3-region') );
 	
 	sheet.paintImage( g, symbolImage1, symbolRegion1 );
 	sheet.paintImage( g, symbolImage2, symbolRegion2 );
+}
+
+function drawTripleAssetTemplate( g, diy, sheet, className, className2, className3 ) {
+	var faceIndex = sheet.getSheetIndex();
+
+	// triple class
+	var image = ImageUtils.get( 'ArkhamHorrorLCG/templates/AHLCG-' + CardTypes[faceIndex] + '-D.jp2' );
+	
+	var w = image.getWidth();
+	var h = image.getHeight();
+
+	sheet.paintImage( g, image, new Region(0, 0, w, h) );
+	
+	// draw class icons
+	var classInitial = getClassInitial( className );
+	var classInitial2 = getClassInitial( className2 );
+	var classInitial3 = getClassInitial( className3 );
+
+	var symbolImage1 = ImageUtils.get( 'ArkhamHorrorLCG/overlays/AHLCG-ClassSymbol-' + classInitial + '.png' );
+	var symbolImage2 = ImageUtils.get( 'ArkhamHorrorLCG/overlays/AHLCG-ClassSymbol-' + classInitial2 + '.png' );
+	var symbolImage3 = ImageUtils.get( 'ArkhamHorrorLCG/overlays/AHLCG-ClassSymbol-' + classInitial3 + '.png' );
+	
+	var symbolRegion1 = diy.settings.getRegion( getExpandedKey( faceIndex, 'ClassSymbol1-region') );
+	var symbolRegion2 = diy.settings.getRegion( getExpandedKey( faceIndex, 'ClassSymbol2-region') );
+	var symbolRegion3 = diy.settings.getRegion( getExpandedKey( faceIndex, 'ClassSymbol3-region') );
+	
+	sheet.paintImage( g, symbolImage1, symbolRegion1 );
+	sheet.paintImage( g, symbolImage2, symbolRegion2 );
+	sheet.paintImage( g, symbolImage3, symbolRegion3 );
 }
 
 function drawGuideTemplate( g, sheet  ) {
@@ -2067,6 +2102,150 @@ function drawSkills( g, diy, sheet, boxArray, nameArray ) {
 		
 		skillBox.drawAsSingleLine( g, diy.settings.getRegion( getExpandedKey( faceIndex, nameArray[i] + '-region' ) ) );
 	}
+}
+
+function drawSkillTemplate( g, diy, sheet, className, className2, className3 ) {
+	var faceIndex = sheet.getSheetIndex();
+
+	// normal
+	if ( className == null || className.length == 0 || className2 == null || className2 == 'None' ) {
+		drawTemplate( g, sheet, className );
+		return;
+	}
+
+	// Try triple class first
+	if ( isTripleClass( className, className2, className3 )) {
+		drawTripleSkillTemplate( g, diy, sheet, className, className2, className3 );
+		return;
+	}
+	// don't draw dual class if the first class isn't a valid one or if the classes match
+	else if ( !isDualClass( className, className2 ) ) {
+		drawTemplate( g, sheet, className );
+		return;
+	}
+
+	// dual class
+	var image = ImageUtils.get( 'ArkhamHorrorLCG/templates/AHLCG-' + CardTypes[faceIndex] + '-T.jp2' );
+	
+	var w = image.getWidth();
+	var h = image.getHeight();
+
+	sheet.paintImage( g, image, new Region(0, 0, w, h) );
+	
+	// draw class icons
+	var classInitial = getClassInitial( className );
+	var classInitial2 = getClassInitial( className2 );
+
+	var symbolImage1 = ImageUtils.get( 'ArkhamHorrorLCG/overlays/AHLCG-ClassSymbol-' + classInitial + '.png' );
+	var symbolImage2 = ImageUtils.get( 'ArkhamHorrorLCG/overlays/AHLCG-ClassSymbol-' + classInitial2 + '.png' );
+	
+	// Symbol 2 and 3 are the middle and rightmost one
+	var symbolRegion1 = diy.settings.getRegion( getExpandedKey( faceIndex, 'ClassSymbol2-region') );
+	var symbolRegion2 = diy.settings.getRegion( getExpandedKey( faceIndex, 'ClassSymbol3-region') );
+	
+	sheet.paintImage( g, symbolImage1, symbolRegion1 );
+	sheet.paintImage( g, symbolImage2, symbolRegion2 );
+}
+
+function drawTripleSkillTemplate( g, diy, sheet, className, className2, className3 ) {
+	var faceIndex = sheet.getSheetIndex();
+
+	// triple class
+	var image = ImageUtils.get( 'ArkhamHorrorLCG/templates/AHLCG-' + CardTypes[faceIndex] + '-T.jp2' );
+	
+	var w = image.getWidth();
+	var h = image.getHeight();
+
+	sheet.paintImage( g, image, new Region(0, 0, w, h) );
+	
+	// draw class icons
+	var classInitial = getClassInitial( className );
+	var classInitial2 = getClassInitial( className2 );
+	var classInitial3 = getClassInitial( className3 );
+
+	var symbolImage1 = ImageUtils.get( 'ArkhamHorrorLCG/overlays/AHLCG-ClassSymbol-' + classInitial + '.png' );
+	var symbolImage2 = ImageUtils.get( 'ArkhamHorrorLCG/overlays/AHLCG-ClassSymbol-' + classInitial2 + '.png' );
+	var symbolImage3 = ImageUtils.get( 'ArkhamHorrorLCG/overlays/AHLCG-ClassSymbol-' + classInitial3 + '.png' );
+	
+	var symbolRegion1 = diy.settings.getRegion( getExpandedKey( faceIndex, 'ClassSymbol1-region') );
+	var symbolRegion2 = diy.settings.getRegion( getExpandedKey( faceIndex, 'ClassSymbol2-region') );
+	var symbolRegion3 = diy.settings.getRegion( getExpandedKey( faceIndex, 'ClassSymbol3-region') );
+	
+	sheet.paintImage( g, symbolImage1, symbolRegion1 );
+	sheet.paintImage( g, symbolImage2, symbolRegion2 );
+	sheet.paintImage( g, symbolImage3, symbolRegion3 );
+}
+
+function drawEventTemplate( g, diy, sheet, className, className2, className3 ) {
+	var faceIndex = sheet.getSheetIndex();
+
+	// normal
+	if ( className == null || className.length == 0 || className2 == null || className2 == 'None' ) {
+		drawTemplate( g, sheet, className );
+		return;
+	}
+
+	// Try triple class first
+	if ( isTripleClass( className, className2, className3 )) {
+		drawTripleEventTemplate( g, diy, sheet, className, className2, className3 );
+		return;
+	}
+	// don't draw dual class if the first class isn't a valid one or if the classes match
+	else if ( !isDualClass( className, className2 ) ) {
+		drawTemplate( g, sheet, className );
+		return;
+	}
+
+	// dual class
+	var image = ImageUtils.get( 'ArkhamHorrorLCG/templates/AHLCG-' + CardTypes[faceIndex] + '-D.jp2' );
+	
+	var w = image.getWidth();
+	var h = image.getHeight();
+
+	sheet.paintImage( g, image, new Region(0, 0, w, h) );
+	
+	// draw class icons
+	var classInitial = getClassInitial( className );
+	var classInitial2 = getClassInitial( className2 );
+
+	var symbolImage1 = ImageUtils.get( 'ArkhamHorrorLCG/overlays/AHLCG-ClassSymbol-' + classInitial + '.png' );
+	var symbolImage2 = ImageUtils.get( 'ArkhamHorrorLCG/overlays/AHLCG-ClassSymbol-' + classInitial2 + '.png' );
+	
+	// Symbol 2 and 3 are the middle and rightmost one
+	var symbolRegion1 = diy.settings.getRegion( getExpandedKey( faceIndex, 'Dual-ClassSymbol1-region') );
+	var symbolRegion2 = diy.settings.getRegion( getExpandedKey( faceIndex, 'Dual-ClassSymbol2-region') );
+	
+	sheet.paintImage( g, symbolImage1, symbolRegion1 );
+	sheet.paintImage( g, symbolImage2, symbolRegion2 );
+}
+
+function drawTripleEventTemplate( g, diy, sheet, className, className2, className3 ) {
+	var faceIndex = sheet.getSheetIndex();
+
+	// triple class
+	var image = ImageUtils.get( 'ArkhamHorrorLCG/templates/AHLCG-' + CardTypes[faceIndex] + '-D.jp2' );
+	
+	var w = image.getWidth();
+	var h = image.getHeight();
+
+	sheet.paintImage( g, image, new Region(0, 0, w, h) );
+	
+	// draw class icons
+	var classInitial = getClassInitial( className );
+	var classInitial2 = getClassInitial( className2 );
+	var classInitial3 = getClassInitial( className3 );
+
+	var symbolImage1 = ImageUtils.get( 'ArkhamHorrorLCG/overlays/AHLCG-ClassSymbol-' + classInitial + '.png' );
+	var symbolImage2 = ImageUtils.get( 'ArkhamHorrorLCG/overlays/AHLCG-ClassSymbol-' + classInitial2 + '.png' );
+	var symbolImage3 = ImageUtils.get( 'ArkhamHorrorLCG/overlays/AHLCG-ClassSymbol-' + classInitial3 + '.png' );
+	
+	var symbolRegion1 = diy.settings.getRegion( getExpandedKey( faceIndex, 'Triple-ClassSymbol1-region') );
+	var symbolRegion2 = diy.settings.getRegion( getExpandedKey( faceIndex, 'Triple-ClassSymbol2-region') );
+	var symbolRegion3 = diy.settings.getRegion( getExpandedKey( faceIndex, 'Triple-ClassSymbol3-region') );
+	
+	sheet.paintImage( g, symbolImage1, symbolRegion1 );
+	sheet.paintImage( g, symbolImage2, symbolRegion2 );
+	sheet.paintImage( g, symbolImage3, symbolRegion3 );
 }
 
 function drawStamina( g, diy, sheet ) {

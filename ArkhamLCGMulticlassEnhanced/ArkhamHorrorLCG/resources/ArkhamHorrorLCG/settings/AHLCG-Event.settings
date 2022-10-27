@@ -34,3 +34,10 @@ AHLCG-Event-Collection-portrait-clip-region = 319,508,13,13
 AHLCG-Event-DefaultCollection-portrait-clip-region = 320,508,13,13
 
 AHLCG-Event-Dash-tint = 0.0, 0.0, 1.0
+
+AHLCG-Event-Dual-ClassSymbol1-region = 140, 255, 52, 52
+AHLCG-Event-Dual-ClassSymbol2-region = 185, 255, 52, 52
+
+AHLCG-Event-Triple-ClassSymbol1-region = 116, 255, 52, 52
+AHLCG-Event-Triple-ClassSymbol2-region = 161, 255, 52, 52
+AHLCG-Event-Triple-ClassSymbol3-region = 206, 255, 52, 52

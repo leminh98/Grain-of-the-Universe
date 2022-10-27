@@ -369,6 +369,12 @@ function layoutAssetStats( bindings, faceIndex ) {
 	var ClassList = new comboBox( AHLCGObject.comboClassesBW, null );
 	bindings.add( 'CardClass' + BindingSuffixes[faceIndex], ClassList, [faceIndex] );
 	
+	var ClassList2 = new comboBox( AHLCGObject.comboClassesD, null );
+	bindings.add( 'CardClass2' + BindingSuffixes[faceIndex], ClassList2, [faceIndex] );
+	
+	var ClassList3 = new comboBox( AHLCGObject.comboClassesD, null );
+	bindings.add( 'CardClass3' + BindingSuffixes[faceIndex], ClassList3, [faceIndex] );
+
 	var SkillList1 = new comboBox( AHLCGObject.comboSkills, null );
 	bindings.add( 'Skill1' + BindingSuffixes[faceIndex], SkillList1, [faceIndex] );
 	
@@ -387,9 +393,6 @@ function layoutAssetStats( bindings, faceIndex ) {
 	var SkillList6 = new comboBox( AHLCGObject.comboSkills, null );
 	bindings.add( 'Skill6' + BindingSuffixes[faceIndex], SkillList6, [faceIndex] );
 	
-	var ClassList2 = new comboBox( AHLCGObject.comboClassesD, null );
-	bindings.add( 'CardClass2' + BindingSuffixes[faceIndex], ClassList2, [faceIndex] );
-
 	var CostList = new comboBox( AHLCGObject.comboCost, null );
 	bindings.add( 'ResourceCost' + BindingSuffixes[faceIndex], CostList, [faceIndex] );
 
@@ -410,8 +413,9 @@ function layoutAssetStats( bindings, faceIndex ) {
 	
 	StatsPanel.place(
 		@AHLCG-Class, 'align right', ClassList, 'pushx, growx, sizegroup sp', 
-		@AHLCG-Cost, 'align right, gapx 10', CostList, 'wrap, pushx, growx, sizegroup sp',		
 		@AHLCG-Class2, 'align right, gapx 10', ClassList2, 'pushx, growx, sizegroup sp', 
+		@AHLCG-Class3, 'align right, gapx 10', ClassList3, 'pushx, growx, sizegroup sp', 
+		@AHLCG-Cost, 'align right, gapx 10', CostList, 'wrap, pushx, growx, sizegroup sp',	
 		@AHLCG-Level, 'align right, gapx 10', LevelList, 'wrap, pushx, growx, sizegroup sp',
 		@AHLCG-Icon + ' 1', 'align right', SkillList1, 'pushx, growx, sizegroup sp',
 		@AHLCG-Slot1, 'align right, gapx 10', SlotList1, 'wrap, pushx, growx, sizegroup sp',
@@ -587,6 +591,12 @@ function layoutEventStats( diy, bindings, faceIndex ) {
 			Error.handleUncaught( ex );
 		}
 	});
+	
+	var ClassList2 = new comboBox( AHLCGObject.comboClassesD, null );
+	bindings.add( 'CardClass2' + BindingSuffixes[faceIndex], ClassList2, [faceIndex] );
+	
+	var ClassList3 = new comboBox( AHLCGObject.comboClassesD, null );
+	bindings.add( 'CardClass3' + BindingSuffixes[faceIndex], ClassList3, [faceIndex] );
 
 	var SkillList1 = new comboBox( AHLCGObject.comboSkills, null );
 	bindings.add( 'Skill1' + BindingSuffixes[faceIndex], SkillList1, [faceIndex] );
@@ -611,6 +621,8 @@ function layoutEventStats( diy, bindings, faceIndex ) {
 
 	StatPanel.place(
 		@AHLCG-Class, 'align right', ClassList, 'pushx, growx, sizegroup sp', 
+		@AHLCG-Class2, 'align right, gapx 10', ClassList2, 'pushx, growx, sizegroup sp', 
+		@AHLCG-Class3, 'align right, gapx 10', ClassList3, 'pushx, growx, sizegroup sp', 
 		@AHLCG-Cost, 'align right, gapx 10', CostList, 'wrap, pushx, growx, sizegroup sp',
 		@AHLCG-Icon + ' 1', 'align right', SkillList1, 'pushx, growx, sizegroup sp',
 		@AHLCG-Level, 'align right, gapx 10', LevelList, 'wrap, pushx, growx, sizegroup sp',
@@ -800,6 +812,12 @@ function layoutSkillStats( bindings, faceIndex ) {
 	var ClassList = new comboBox( AHLCGObject.comboClassesW, null );
 	bindings.add( 'CardClass' + BindingSuffixes[faceIndex], ClassList, [faceIndex] );
 	
+	var ClassList2 = new comboBox( AHLCGObject.comboClassesD, null );
+	bindings.add( 'CardClass2' + BindingSuffixes[faceIndex], ClassList2, [faceIndex] );
+	
+	var ClassList3 = new comboBox( AHLCGObject.comboClassesD, null );
+	bindings.add( 'CardClass3' + BindingSuffixes[faceIndex], ClassList3, [faceIndex] );
+	
 	var SkillList1 = new comboBox( AHLCGObject.comboSkills, null );
 	bindings.add( 'Skill1' + BindingSuffixes[faceIndex], SkillList1, [faceIndex] );
 	
@@ -823,6 +841,8 @@ function layoutSkillStats( bindings, faceIndex ) {
 
 	StatPanel.place(
 		@AHLCG-Class, 'align right', ClassList, 'pushx, growx, sizegroup sp', 
+		@AHLCG-Class2, 'align right, gapx 10', ClassList2, 'pushx, growx, sizegroup sp', 
+		@AHLCG-Class3, 'align right, gapx 10', ClassList3, 'pushx, growx, sizegroup sp', 
 		@AHLCG-Level, 'align right, gapx 10', LevelList, 'wrap, pushx, growx, sizegroup sp',
 		@AHLCG-Icon + ' 1', 'align right', SkillList1, 'wrap, pushx, growx, sizegroup sp',
 		@AHLCG-Icon + ' 2', 'align right', SkillList2, 'wrap, pushx, growx, sizegroup sp',

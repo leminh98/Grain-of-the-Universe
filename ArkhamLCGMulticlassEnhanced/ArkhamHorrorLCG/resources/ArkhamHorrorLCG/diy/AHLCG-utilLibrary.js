@@ -1175,6 +1175,9 @@ function getClassInitial( className ) {
 		case 'Dual':
 			initial = 'D';
 			break;
+		case 'Triple':
+			initial = 'T';
+			break;
 		case 'Test':
 			initial = 'T';
 			break;
@@ -1224,6 +1227,24 @@ function isDualClass( cardClass, cardClass2 ) {
 	}
 
 	return dual;
+}
+
+function isTripleClass( cardClass, cardClass2, cardClass3 ) {
+	var triple = true;
+
+	// not dual class if the first class isn't a valid one or if the classes match
+	if ( cardClass2 == 'None' ) triple = false;
+	else if ( cardClass3 == 'None' ) triple = false;
+	else if ( cardClass == cardClass2 ) triple = false;
+	else if ( cardClass == cardClass3 ) triple = false;
+	else if ( cardClass2 == cardClass3 ) triple = false;
+	else { 
+		let classInitial = getClassInitial( cardClass );
+
+		if ( classInitial != 'G' && classInitial != 'K' && classInitial != 'R' && classInitial != 'M' && classInitial != 'V' ) triple = false;
+	}
+
+	return triple;
 }
 
 function setPortraitPanelFileFieldEnabled( panel, enabled ) {

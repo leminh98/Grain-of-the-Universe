@@ -35,3 +35,7 @@ AHLCG-Skill-Collection-portrait-pany = 0
 
 AHLCG-Skill-DefaultCollection-portrait-clip-region = 319,508,13,13
 AHLCG-Skill-Collection-portrait-clip-region = 319,508,13,13
+
+AHLCG-Skill-ClassSymbol1-region = 229, 2, 52, 52
+AHLCG-Skill-ClassSymbol2-region = 274, 2, 52, 52
+AHLCG-Skill-ClassSymbol3-region = 319, 2, 52, 52
