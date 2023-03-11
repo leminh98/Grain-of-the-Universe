@@ -24,7 +24,7 @@ function create( diy ) {
 	createPortraits( diy, PortraitTypeList );
 	setDefaultCollection();
 
-	diy.version = 12;
+	diy.version = 13;
 }
 
 function setDefaults() {
