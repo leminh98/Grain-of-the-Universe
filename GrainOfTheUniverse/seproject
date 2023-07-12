@@ -1,8 +1,14 @@
 # WARNING: If this file is deleted, Strange Eons will no longer
 # see this as a project/task folder!
-selected-members = 
-first-row = 0
-open-folders = 
+selected-members = :Investigator Expansion/Player Cards/strange eon \
+    files/Multiclass eon files/Equivalent Exchange.eon
+first-row = 43
+open-folders = :ttszoop-1:Campaign Expansion:Investigator Expansion:Investigator \
+    Expansion/Investigator Pack:Investigator Expansion/Investigator Pack/Mak \
+    Jankovsky:Investigator Expansion/Investigator Pack/Michael Young:Investigator \
+    Expansion/Investigator Pack/Minh Le:Investigator Expansion/Player \
+    Cards:Investigator Expansion/Player Cards/strange eon files:Investigator \
+    Expansion/Player Cards/strange eon files/Multiclass eon files
 notes = 
 res-id = machinelearning
 type = PROJECT
