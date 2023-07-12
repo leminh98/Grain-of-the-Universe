@@ -1,13 +1,12 @@
 # WARNING: If this file is deleted, Strange Eons will no longer
 # see this as a project/task folder!
-selected-members = :Campaign Expansion/Scenario/Side Scenario/Anitha/Crisis of \
-    Faith/Crisis Of Faith Card Deck.eon
+selected-members = :InvestigatorExpansion/Investigators/Minh Le/deck.eon
 first-row = 0
-open-folders = :Campaign Expansion:Campaign Expansion/Scenario:Campaign \
-    Expansion/Scenario/Side Scenario:Campaign Expansion/Scenario/Side \
-    Scenario/Anitha:Campaign Expansion/Scenario/Side Scenario/Anitha/Crisis of \
-    Faith:Investigator Expansion:Investigator Expansion/Investigator \
-    Pack:Investigator Expansion/Player Cards:Investigator Expansion/Player \
+open-folders = \
+    :InvestigatorExpansion:InvestigatorExpansion/Investigators:InvestigatorExpansion/\
+    Investigators/Michael Young:InvestigatorExpansion/Investigators/Minh \
+    Le:InvestigatorExpansion/Investigators/Minh Le/Minh Le:Investigator \
+    Expansion:Investigator Expansion/Player Cards:Investigator Expansion/Player \
     Cards/strange eon files
 notes = 
 res-id = machinelearning
